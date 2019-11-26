@@ -1,1 +1,98 @@
-<p>detail-open-donasi works!</p>
+<div nz-row style="padding:50px 100px 50px 100px;background-color: #eeeeee;">
+    <div nz-col nzSpan="24" style="padding:40px;background-color: #fff;margin-top:30px;border-radius:5px">
+        <img src="assets/img/1.png" style="border-radius:5px;width:100%" alt="">
+        <h2 class="myTitle">
+            Bantu Mas Endrik Lolos CPNS
+        </h2>
+        <div nz-row>
+            <div nz-col nzSpan="12" style="text-align: left;">
+                <p> <span style="font-size:16px;color:#4bb7ff"><b>Rp 1.500.000</b> </span> dari Rp 3.000.000</p>
+            </div>
+            <div nz-col nzSpan="12" style="text-align: right;">
+                <ul style="margin-bottom:0px">
+                    <li style="display: inline-block;margin-right:10px">
+                        <p> <span style="font-size:16px;"><i nz-icon nzType="gift" nzTheme="outline"></i><b> 1000</b> </span> Donasi</p>
+                    </li>
+                    <li style="display: inline-block;">
+                        <p> <span style="font-size:16px;"><i nz-icon nzType="schedule" nzTheme="outline"></i><b> 30</b> </span> Hari lagi</p>
+                    </li>
+                </ul>
+               
+            </div>
+        </div>
+        <nz-progress [nzPercent]="50" nzStatus="active"></nz-progress>
+        <p>Sisa waktu  : 30 hari lagi, pada tanggal 26-12-2019</p>
+        <button nz-button nzType="primary"  style="width:100%" (click)="donasiSekarang()" *ngIf="isOpen == false"> 
+            <div [ngSwitch]="loading">
+                <span *ngSwitchCase="true"><i nz-icon nzType="loading" nzTheme="outline"></i></span>
+                <span *ngSwitchDefault>Donasi Sekarang</span>
+            </div>
+        </button>
+        <div [@openClose]="isOpen ? 'open' : 'closed'"  >
+        <div nz-row nzGutter="24" *ngIf="isOpen == true" class="open-close-container " >
+            <div nz-col class="gutter-row" nzSpan="12">
+                <div class="gutter-box" style="padding:20px 50px 20px 50px">
+                    <p style="text-align:center"> <span style="color: #4bb7ff;cursor:pointer">Masuk</span>  atau lengkapi data di bawah ini! </p>
+                    <input style="margin-bottom:10px" nz-input placeholder="Nama" [(ngModel)]="name" />
+                    <input style="margin-bottom:10px" nz-input placeholder="Email" [(ngModel)]="email" />
+                    <div nz-row style="margin-bottom:10px">
+                        <div nz-col nzSpan="20">
+                            <span>Sembunyikan nama saya (anonim)</span>
+                        </div>
+                        <div nz-col nzSpan="4">
+                            <nz-switch [(ngModel)]="anonim"></nz-switch>
+                        </div>
+                    </div>
+                    <div nz-row style="margin-bottom:10px">
+                            <div nz-col nzSpan="20">
+                                <span>Komentar (optional)</span>
+                            </div>
+                            <div nz-col nzSpan="4" style="margin-bottom:10px">
+                                <nz-switch [(ngModel)]="showComment"></nz-switch>
+                            </div>
+                            <div *ngIf="showComment== true" nz-col nzSpan="24">
+                                    <textarea rows="4" nz-input [(ngModel)]="comment"></textarea>
+                            </div>
+                        </div>
+                </div>
+            </div>
+            <div nz-col class="gutter-row" nzSpan="12">
+                <div class="gutter-box"  style="padding:20px 50px 20px 50px">
+                        <p style="text-align:center"> <b>Transaksi Donasi</b> </p>
+                        <input style="margin-bottom:10px" nz-input placeholder="Jumlah Donasi (Rp)" [(ngModel)]="jumlahDonasi" />
+                        <p>Pilih metode pembayaran : </p>
+                        <nz-radio-group  [(ngModel)]="radioValue">
+                        <label [ngStyle]="style"   *ngFor="let data of payment" [nzDisabled]= "jumlahDonasi.length <= 4" nz-radio [nzValue]="data.name"> 
+                        <img style="width:60px;display:inline-block;margin-right:5px" [src]="data.img" alt="">
+                            {{data.name}}
+                        </label>
+                        </nz-radio-group>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <div nz-col nzSpan="24" style="padding:40px;background-color: #fff;margin-top:30px;border-radius:5px">
+        <nz-collapse [nzBordered]="false">
+            <nz-collapse-panel *ngFor="let panel of panels" [nzHeader]="panel.name" [nzActive]="panel.active">
+              <p *ngIf="panel.type == 'story'">{{ panel.description }} content</p>
+              <div *ngIf="panel.type == 'donatur'">
+                    <nz-comment [nzAuthor]="donatur.name" *ngFor="let donatur of panel.data">
+                    <nz-avatar
+                        nz-comment-avatar
+                        nzIcon="user"
+                        [nzSrc]="donatur.ava"
+                    ></nz-avatar>
+                    <nz-comment-content>
+                        <p style="margin-left:-5px">
+                        {{donatur.comment}}
+                        </p>
+                    </nz-comment-content>
+                    </nz-comment>
+
+              </div>
+            </nz-collapse-panel>
+          </nz-collapse>
+    </div>
+  </div>

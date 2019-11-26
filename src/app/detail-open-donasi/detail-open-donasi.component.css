@@ -1,0 +1,23 @@
+.myTitle {
+    font-size: 24px;
+    line-height: 1.5;
+    clear: both;
+    margin: .6em 0 .6em;
+    color:#6bace4;
+    font-weight: 500;
+    font-family: Avenir,-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei','Helvetica Neue',Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol',sans-serif;
+  }
+
+  .open-close-container {
+    padding: 20px;
+  }
+
+  .gutter-box {
+    background: #fff;
+    padding: 20px;
+    border-radius:5px;
+  }
+
+  [nz-radio] {
+    display:block;margin-bottom:5px
+  }

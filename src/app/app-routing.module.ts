@@ -13,15 +13,17 @@ import { SAndKComponent } from './s-and-k/s-and-k.component';
 import { DetailOpenDonasiComponent } from './detail-open-donasi/detail-open-donasi.component';
 import { PaymentComponent } from './payment/payment.component';
 import { AccountComponent } from './account/account.component';
-
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
 const routes: Routes = [
+  {path : '', redirectTo : '/home',  pathMatch :'full'},
   {path : 'home', component : HomeComponent},
   {path : 'inbox', component : ListInboxComponent},
   {path : 'detaildonasi', component : DetailOpenDonasiComponent}, 
   {path : 'donasisaya', component :DonasiSayaComponent },
   {path : 'account', component : AccountComponent},
   {path : 'payment', component : PaymentComponent },
+  {path : '**', component : PagenotfoundComponent}
 ];
 
 @NgModule({
@@ -42,5 +44,6 @@ export const routingComponents = [
   SAndKComponent,
   DetailOpenDonasiComponent,
   PaymentComponent, 
-  AccountComponent
+  AccountComponent,
+  PagenotfoundComponent
 ]
