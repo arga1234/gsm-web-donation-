@@ -29,9 +29,10 @@
             </div>
         </button>
         <div [@openClose]="isOpen ? 'open' : 'closed'"  >
-        <div nz-row nzGutter="24" *ngIf="isOpen == true" class="open-close-container " >
+        <div nz-row nzGutter="24" *ngIf="isOpen == true"  class="open-close-container " >
             <div nz-col class="gutter-row" nzSpan="12">
-                <div class="gutter-box" style="padding:20px 50px 20px 50px">
+                <div [@openForm]="isOpen ? 'open' : 'closed'"  class="gutter-box" style="padding:20px 50px 20px 50px">
+                    <div *ngIf="isOpen2">
                     <p style="text-align:center"> <span style="color: #4bb7ff;cursor:pointer">Masuk</span>  atau lengkapi data di bawah ini! </p>
                     <input style="margin-bottom:10px" nz-input placeholder="Nama" [(ngModel)]="name" />
                     <input style="margin-bottom:10px" nz-input placeholder="Email" [(ngModel)]="email" />
@@ -54,20 +55,38 @@
                                     <textarea rows="4" nz-input [(ngModel)]="comment"></textarea>
                             </div>
                         </div>
-                </div>
+                    </div>
+                    
+                </div> 
             </div>
-            <div nz-col class="gutter-row" nzSpan="12">
-                <div class="gutter-box"  style="padding:20px 50px 20px 50px">
-                        <p style="text-align:center"> <b>Transaksi Donasi</b> </p>
+            <div  nz-col class="gutter-row" nzSpan="12">
+                 <div [@openForm]="isOpen ? 'open' : 'closed'" class="gutter-box"  style="padding:20px 50px 20px 50px">
+                        <div *ngIf="isOpen2">
+                        <p style="text-align:center"> <b>Transaksi Donasi </b> <span *ngIf="jumlahDonasi.length < 5 " style="color:red">(minimal Rp 10.000)</span> </p>
                         <input style="margin-bottom:10px" nz-input placeholder="Jumlah Donasi (Rp)" [(ngModel)]="jumlahDonasi" />
+
                         <p>Pilih metode pembayaran : </p>
-                        <nz-radio-group  [(ngModel)]="radioValue">
-                        <label [ngStyle]="style"   *ngFor="let data of payment" [nzDisabled]= "jumlahDonasi.length <= 4" nz-radio [nzValue]="data.name"> 
-                        <img style="width:60px;display:inline-block;margin-right:5px" [src]="data.img" alt="">
-                            {{data.name}}
-                        </label>
-                        </nz-radio-group>
-                </div>
+                        <perfect-scrollbar style="max-width: 600px; max-height: 100px;" [config]="config">
+                            <div>
+                                <nz-radio-group  [(ngModel)]="radioValue">
+                                <label [ngStyle]="style"   *ngFor="let data of payment" [nzDisabled]= "jumlahDonasi.length <= 4" nz-radio [nzValue]="data.name"> 
+                                <img style="width:60px;display:inline-block;margin-right:5px" [src]="data.img" alt="">
+                                    {{data.name}}
+                                </label>
+                                </nz-radio-group>
+                            </div>
+                        </perfect-scrollbar>
+                        </div>
+                         
+                </div> 
+            </div>
+            <div nz-col nzSpan="24" style="margin-top:20px">
+                <button *ngIf="isOpen2" nz-button nzType="primary"  style="width:100%" (click)="donasiSekarang2()" > 
+                    <div [ngSwitch]="loading">
+                        <span *ngSwitchCase="true"><i nz-icon nzType="loading" nzTheme="outline"></i></span>
+                        <span *ngSwitchDefault>Lanjutkan Pembayaran</span>
+                    </div>
+                </button>
             </div>
         </div>
         </div>

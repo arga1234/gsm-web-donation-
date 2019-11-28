@@ -1,9 +1,12 @@
 <!-- NG-ZORRO -->
 <ul nz-menu nzMode="horizontal" style="text-align: right;position: fixed;width: 100%;z-index: 100;">
     <li class="myLogo">Donation Web GSM</li>
+    
     <li nz-menu-item nzSelected >
-      <i nz-icon nzType="appstore" nzTheme="outline"></i>
-      Home
+        <a routerLink="/home">
+          <i nz-icon nzType="appstore" nzTheme="outline"></i>
+          Home
+        </a>
     </li>
     <li nz-menu-item >
       <i nz-icon nzType="solution" nzTheme="outline"></i>
@@ -14,8 +17,10 @@
       Inbox
     </li>
     <li nz-menu-item >
-      <i nz-icon nzType="user" nzTheme="outline"></i>
-      Account
+      <a routerLink="/account">
+        <i nz-icon nzType="user" nzTheme="outline"></i>
+        Account
+      </a>
     </li>
 </ul>
 <router-outlet></router-outlet>
