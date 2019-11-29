@@ -1,0 +1,23 @@
+.ant-divider-horizontal{
+    margin: 10px 0!important;
+}
+
+p{
+    margin : 5px 0px!important
+}
+
+.itemAccount{
+    padding:5px;display: flex;cursor:pointer
+}
+
+/* .login-form {
+    max-width: 300px;
+  } */
+
+  .login-form-forgot {
+    float: right;
+  }
+
+  .login-form-button {
+    width: 100%;
+  }
