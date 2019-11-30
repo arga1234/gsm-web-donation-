@@ -2,21 +2,28 @@
 <ul nz-menu nzMode="horizontal" style="text-align: right;position: fixed;width: 100%;z-index: 100;">
     <li class="myLogo">Donation Web GSM</li>
     
-    <li nz-menu-item nzSelected >
+    <li nz-menu-item [class]="this.routerLoc == '/home' ? selectedMenu: unselectedMenu" >
         <a routerLink="/home">
           <i nz-icon nzType="appstore" nzTheme="outline"></i>
           Home
         </a>
     </li>
-    <li nz-menu-item >
-      <i nz-icon nzType="solution" nzTheme="outline"></i>
-      Donasi Saya
+    
+      <li nz-menu-item [class]="this.routerLoc == '/donasisaya' ? selectedMenu: unselectedMenu" >
+          <a routerLink="/donasisaya">
+          <i nz-icon nzType="solution" nzTheme="outline"></i>
+          Donasi Saya
+        </a>
+        </li>
+   
+
+    <li nz-menu-item [class]="this.routerLoc == '/inbox' ? selectedMenu: unselectedMenu" >
+      <a routerLink="/inbox">
+          <i nz-icon nzType="inbox" nzTheme="outline"></i>
+          Inbox  
+      </a>
     </li>
-    <li nz-menu-item >
-      <i nz-icon nzType="inbox" nzTheme="outline"></i>
-      Inbox
-    </li>
-    <li nz-menu-item >
+    <li nz-menu-item [class]="this.routerLoc == '/account' ? selectedMenu: unselectedMenu" >
       <a routerLink="/account">
         <i nz-icon nzType="user" nzTheme="outline"></i>
         Account

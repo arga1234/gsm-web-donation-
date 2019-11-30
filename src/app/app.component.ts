@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { Observable, of, throwError } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { catchError, tap, map } from 'rxjs/operators';
+import {Router, NavigationStart } from '@angular/router';
+
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
@@ -13,8 +15,11 @@ const apiUrl = 'https://jsonplaceholder.typicode.com/todos/';
 })
 export class AppComponent {
   title = 'gsm-project';
+  routerLoc = ''
+  selectedMenu = 'ant-menu-item ant-menu-item-selected'
+  unselectedMenu = 'ant-menu-item'
   data: any[] = [];
-  constructor(private http: HttpClient) {
+  constructor(private router: Router,private http: HttpClient) {
     this.getProduct(1)
     .subscribe((res: any) => {
       this.data = res;
@@ -47,5 +52,12 @@ export class AppComponent {
     );
   }
 
+  ngOnInit() {
+    console.log("Hello")
+    setTimeout(()=>{
+      this.routerLoc = this.router.url
+      console.log(this.router.url)
+    }, 1000)
+  }
 
 }
