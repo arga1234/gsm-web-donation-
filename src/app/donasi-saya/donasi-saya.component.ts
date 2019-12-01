@@ -9,6 +9,7 @@ export class DonasiSayaComponent implements OnInit {
   isVisible = false;
   detailModalBox = {}
   // donasiSaya = []
+  authenticated = false
   donasiSaya = [{
     title : 'This Is Title', 
     image : 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR6INshAGvHmVCXnrXEYlOe_BUQHWwN_Zp0Fdb1uxH7AccY2VeD', 

@@ -8,6 +8,16 @@ import { NzFormModule } from 'ng-zorro-antd/form';
   styleUrls: ['./account.component.css']
 })
 export class AccountComponent implements OnInit {
+  user={
+    username : 'Arga Wirawan', 
+    noWA : '082144722631', 
+    email : '', 
+    facebook : ''
+  }
+  showModal = false
+  isOkLoading = false;
+  modalTitle = ''
+  authenticated = false
   selectedItem = 'list'
   validateForm: FormGroup;
   validateForm2 : FormGroup;
@@ -16,6 +26,23 @@ export class AccountComponent implements OnInit {
       this.validateForm.controls[i].markAsDirty();
       this.validateForm.controls[i].updateValueAndValidity();
     }
+  }
+
+  addNewData(x){
+    this.modalTitle = x
+      this.showModal = true
+  }
+
+  handleOk(): void {
+    this.isOkLoading = true;
+    setTimeout(() => {
+      this.showModal = false;
+      this.isOkLoading = false;
+    }, 3000);
+  }
+
+  handleCancel(): void {
+    this.showModal = false;
   }
 
   submitForm2(): void {

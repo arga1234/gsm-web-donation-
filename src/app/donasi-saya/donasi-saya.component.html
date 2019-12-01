@@ -1,10 +1,11 @@
 <div nz-row style="padding:70px 150px 0px 150px;background-color: #f3f3f3;min-height: 500px;">
     <h1 style="text-align: center;">Donasi Anda</h1>
+    <div *ngIf="authenticated ==true;else notAuthenticated">
     <div *ngIf="donasiSaya.length == 0;else listDonasi" nz-col nzMd="24" style="text-align:center;background-color: white;min-height: 300px;border-radius:5px">
             <i style="font-size: 30px;margin-top:80px;margin-bottom:15px" nz-icon nzType="gift" nzTheme="outline"></i>
             <p>Belum ada donasi, yuk segera ikut berdonasi </p>
             <a routerLink="/home"><button nz-button nzType="primary">Ayo</button></a>
-    </div>
+        </div>
     <ng-template #listDonasi>
     <div nz-col nzMd="8" *ngFor="let list of donasiSaya" style="padding:5px" (click)="showDetail(list.detail)">
         <nz-card nzHoverable style="width:240px" [nzCover]="coverTemplate">
@@ -16,9 +17,14 @@
         </ng-template>
     </div>
     </ng-template>
-
-        
-
+    </div>
+    <ng-template #notAuthenticated>
+    <div nz-col nzMd="24" style="text-align:center;background-color: white;min-height: 300px;border-radius:5px">
+        <i style="font-size: 30px;margin-top:80px;margin-bottom:15px" nz-icon nzType="gift" nzTheme="outline"></i>
+        <p>Anda belum login </p>
+        <a routerLink="/account"><button nz-button nzType="primary">Menuju Login</button></a>
+</div>
+    </ng-template>
 
 
     <nz-modal [(nzVisible)]="isVisible" nzTitle="Detail" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">

@@ -9,6 +9,17 @@
         </p>
         </div>  
         <div *ngSwitchCase="'list'" >
+
+        <div *ngIf="authenticated == true;else notAuthenticated">
+        <div (click)="changeItem('Akun Saya')" class="itemAccount">
+            <p>
+                <i nz-icon nzType="user-add" style="margin-right:10px" nzTheme="outline"></i>
+                <span>Akun Saya</span>            
+            </p>
+        </div>
+        <nz-divider></nz-divider>
+        </div>
+        <ng-template #notAuthenticated>
         <div (click)="changeItem('Daftar')" class="itemAccount">
             <p>
                 <i nz-icon nzType="user-add" style="margin-right:10px" nzTheme="outline"></i>
@@ -21,9 +32,13 @@
                 <i nz-icon nzType="user" style="margin-right:10px" nzTheme="outline"></i>
                 <span>Masuk</span> 
             </p>
-   
+    
         </div>
         <nz-divider></nz-divider>
+        </ng-template>
+
+        
+        
         <div (click)="changeItem('Bantuan')" class="itemAccount">
             <p> 
                 <i nz-icon nzType="read" style="margin-right:10px" nzTheme="outline"></i>
@@ -125,6 +140,44 @@
         </form>
     </div>
 
+    <div *ngSwitchCase="'Akun Saya'" style="margin-top:20px">
+    <div class="itemAccount">
+    <p> 
+        <i nz-icon nzType="user" style="margin-right:10px" nzTheme="outline"></i>
+        <span>Username : {{user.username}}</span> 
+    </p>
+    </div>
+    <nz-divider></nz-divider>
+
+    <div class="itemAccount">
+    <p> 
+        <i nz-icon nzType="phone" style="margin-right:10px" nzTheme="outline"></i>
+        <span>No WA : {{user.noWA =='' ? user.noWA : ''}}</span> 
+        <span *ngIf="user.noWA ==''" (click)="addNewData('No WA')" style="cursor:pointer;color:rgb(72, 145, 255)">Kosong, Masukan no WA</span>
+    </p>
+    </div>
+
+    <nz-divider></nz-divider>
+
+    <div class="itemAccount">
+    <p> 
+        <i nz-icon nzType="google" style="margin-right:10px" nzTheme="outline"></i>
+        <span>Email : {{user.email !=='' ? user.email : ''}} </span> 
+        <span *ngIf="user.email ==''" (click)="addNewData('Email')" style="cursor:pointer;color:rgb(72, 145, 255)">Kosong, Masukan Email</span>
+    </p>
+    </div>
+    <nz-divider></nz-divider>
+
+    <div class="itemAccount">
+    <p> 
+        <i nz-icon nzType="facebook" style="margin-right:10px" nzTheme="outline"></i>
+        <span>Facebook : {{user.facebook !=='' ? user.facebook : ''}}</span> 
+        <span *ngIf="user.facebook ==''" (click)="addNewData('Facebook')" style="cursor:pointer;color:rgb(72, 145, 255)">Kosong, Masukan Facebook</span>
+    </p>
+    </div>
+    <nz-divider></nz-divider>
+    </div>
+
     <div *ngSwitchCase="'Bantuan'" style="margin-top:30px;text-align:justify">
         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
     </div>
@@ -139,3 +192,16 @@
     
      </div>
 </div>
+
+<nz-modal
+    [(nzVisible)]="showModal"
+    [nzTitle]="modalTitle"
+    (nzOnCancel)="handleCancel()"
+    (nzOnOk)="handleOk()"
+    [nzOkLoading]="isOkLoading"
+>
+<input *ngIf="modalTitle == 'No WA'" nz-input placeholder="Masukan WA" [(ngModel)]="user.noWA" />
+<input *ngIf="modalTitle == 'Facebook'" nz-input placeholder="Masukan Facebook" [(ngModel)]="user.facebook" />
+<input *ngIf="modalTitle == 'Email'" nz-input placeholder="Masukan Email" [(ngModel)]="user.email" />
+
+</nz-modal>
