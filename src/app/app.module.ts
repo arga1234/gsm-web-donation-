@@ -15,6 +15,7 @@ import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 import { MyServicesService } from './myServices.service'
 import { StoreModule } from '@ngrx/store';
 import  {updateDetail} from './reducers/list-open-donation.reducer'
+import { addCoinReducer } from './reducers/blockchain.reducer';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
@@ -29,7 +30,7 @@ registerLocaleData(en);
     routingComponents
    ],
   imports: [
-    StoreModule.forRoot({detailDonasi: updateDetail}),
+    StoreModule.forRoot({detailDonasi: updateDetail, blockchain: addCoinReducer}),
     BrowserModule,
     AppRoutingModule,
     NgZorroAntdModule,

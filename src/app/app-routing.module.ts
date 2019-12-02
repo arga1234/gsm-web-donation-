@@ -14,6 +14,8 @@ import { DetailOpenDonasiComponent } from './detail-open-donasi/detail-open-dona
 import { PaymentComponent } from './payment/payment.component';
 import { AccountComponent } from './account/account.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { BlockchainComponent } from './blockchain/blockchain.component';
+import { DisplayComponent } from './display/display.component'
 
 const routes: Routes = [
   {path : '', redirectTo : '/home',  pathMatch :'full'},
@@ -23,6 +25,7 @@ const routes: Routes = [
   {path : 'donasisaya', component :DonasiSayaComponent },
   {path : 'account', component : AccountComponent},
   {path : 'payment', component : PaymentComponent },
+  {path : 'blockchain', component : BlockchainComponent },
   {path : '**', component : PagenotfoundComponent}
 ];
 
@@ -45,5 +48,7 @@ export const routingComponents = [
   DetailOpenDonasiComponent,
   PaymentComponent, 
   AccountComponent,
-  PagenotfoundComponent
+  PagenotfoundComponent, 
+  BlockchainComponent, 
+  DisplayComponent
 ]
