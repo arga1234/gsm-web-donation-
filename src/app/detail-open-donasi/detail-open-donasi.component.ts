@@ -3,6 +3,10 @@ import {trigger, state, style, animate, transition} from '@angular/animations';
 import { NzMessageService } from 'ng-zorro-antd/message';
 // observable on router
 import { ActivatedRoute, Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { Detail } from './../list-open-donation/list-open-donation.model';
+import { AppState } from './../app.state';
 
 @Component({
   selector: 'app-detail-open-donasi',
@@ -48,6 +52,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./detail-open-donasi.component.css'], 
 })
 export class DetailOpenDonasiComponent implements OnInit {
+  detailStore: Observable<Detail>
   panels = [
     {
       active: true,
@@ -97,6 +102,7 @@ export class DetailOpenDonasiComponent implements OnInit {
   }
 
   donasiSekarang(){
+    console.log(this.detailStore)
     this.loading = true
     setTimeout(()=>{ 
       this.isOpen = true
@@ -124,7 +130,9 @@ export class DetailOpenDonasiComponent implements OnInit {
     this.message.create(type, 'Nama, email, jumlah donasi dan metode pembyaran tidak boleh kosong');
   }
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute, private message: NzMessageService) { }
+  constructor(private router: Router, private activatedRoute: ActivatedRoute, private message: NzMessageService, private store : Store<AppState>) { 
+    this.detailStore = this.store.select(state => state.detailDonasi)
+  }
 
   ngOnInit() {
     this.panels[1].name = 'Pendonasi (' + this.panels[1].data.length + ')' 

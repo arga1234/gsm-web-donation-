@@ -13,6 +13,8 @@ import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 import { MyServicesService } from './myServices.service'
+import { StoreModule } from '@ngrx/store';
+import  {updateDetail} from './reducers/list-open-donation.reducer'
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
@@ -27,6 +29,7 @@ registerLocaleData(en);
     routingComponents
    ],
   imports: [
+    StoreModule.forRoot({detailDonasi: updateDetail}),
     BrowserModule,
     AppRoutingModule,
     NgZorroAntdModule,

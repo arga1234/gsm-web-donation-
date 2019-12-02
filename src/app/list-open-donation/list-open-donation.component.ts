@@ -3,6 +3,10 @@ import {Router, NavigationStart } from '@angular/router';
 import { MyServicesService } from '../myServices.service';
 import { filter } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { Detail } from './list-open-donation.model';
+import { AppState } from './../app.state';
+
 
 
 @Component({
@@ -43,14 +47,18 @@ export class ListOpenDonationComponent implements OnInit {
   }
 
   // Inject module router services ke constructor
-  constructor(private router: Router, private _myserviceService : MyServicesService) { 
+  constructor(private router: Router, private _myserviceService : MyServicesService, private store : Store<AppState>) { 
   //  observable on router
     this.navStart = router.events.pipe(
       filter(evt => evt instanceof NavigationStart)
     ) as Observable<NavigationStart>;
   }
 
-  goToDetail(){
+  goToDetail(data){
+    this.store.dispatch({
+      type : 'UPDATE_DETAIL', 
+      payload : <Detail> data
+    })
     this.router.navigateByUrl('/detaildonasi');
   }
 
@@ -60,6 +68,7 @@ export class ListOpenDonationComponent implements OnInit {
   }
 
   ngOnInit() {
+    
     this.data = this._myserviceService.getListDonasi()
     // Mensubsribe observable yang ada di service kemudian memasukannya ke dalam datas
     this._myserviceService.currentData.subscribe(data => this.datas = data);

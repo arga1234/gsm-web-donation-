@@ -1,5 +1,5 @@
 <div nz-row style="padding:50px 100px 0px 100px;background-color: #f3f3f3;" (scroll)="scrollHandler($event)" >
-    <div nz-col nzSpan="24" (click)="goToDetail()" class="cardDesignDonation"  *ngFor="let list of data">
+    <div nz-col nzSpan="24" (click)="goToDetail(list)" class="cardDesignDonation"  *ngFor="let list of data">
         <div nz-row>
             <div nz-col nzSpan="8">
                 <img style="width:100%;border-radius: 5px;" [src]="list.image" alt="">
