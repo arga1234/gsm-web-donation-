@@ -1,11 +1,11 @@
 [nz-carousel-content] {
-    text-align: center;
-    height: 100%;
-    line-height: 100%;
-    background: #364d79;
-    color: #fff;
-    overflow: hidden;
-  }
+  text-align: center;
+  height: 300px;
+  line-height: 300px;
+  background: #364d79;
+  color: #fff;
+  overflow: hidden;
+}
 
   h3 {
     color: #fff;
@@ -15,7 +15,7 @@
     font-size: 24px;
     line-height: 1.5;
     clear: both;
-    margin: .6em 0 .6em;
+    
     color:#6bace4;
     font-weight: 500;
     font-family: Avenir,-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei','Helvetica Neue',Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol',sans-serif;
@@ -24,10 +24,62 @@
   p{
     color:
     #314659;
-    font-size: 16px;
     line-height: 2;
     font-variant: tabular-nums;
     font-feature-settings: 'tnum';
     font-family: -apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei','Helvetica Neue',Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';
     font-variant: tabular-nums;
+  }
+
+  
+
+  @media only screen and (min-width:710px){
+    .blog-slider{
+      padding:50px 100px 
+    }
+
+    .myTitle{
+      margin: .6em 0 .6em;
+    }
+
+    p{
+      font-size:16px
+    }
+
+    .aboutGSM{
+      padding:20px 0px 20px 15px
+    }
+  }
+
+  @media only screen and (max-width:709px){
+    .blog-slider{
+      padding:50px 50px 
+    }
+
+    .aboutGSM{
+      padding:0px 0px 20px 15px
+    }
+
+    p{
+      font-size: 14px;
+    }
+
+    .myTitle{
+      margin: 0px 0 .6em;
+    }
+  }
+
+  @media only screen and (max-width:450px){
+    .blog-slider{
+      padding:50px 15px 
+    }
+
+    .myTitle{
+      font-size:16px!important; 
+
+    }
+
+    p{
+      font-size:11px
+    }
   }

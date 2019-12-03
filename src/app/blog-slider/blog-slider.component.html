@@ -1,12 +1,13 @@
-<div nz-row style="padding:50px 100px 50px 100px">
-<div nz-col nzSpan="14" style="padding:20px;min-height: 350px;">
-    <nz-carousel nzAutoPlay style="min-height:300px;max-height: 350px;border-radius: 5px;">
-    <div  nz-carousel-content *ngFor="let data of image">
-        <img style="width:100%;" [src]="data" alt="">
-    </div>
-    </nz-carousel>
+<div nz-row class="blog-slider">
+<div nz-col nzMd="14" style="padding:20px">
+    <owl-carousel-o [options]="customOptions">
+        <ng-template carouselSlide *ngFor="let item of image">
+            <img [src]="item" style="width:100%;border-radius:5px" alt="">
+        </ng-template>  
+
+      </owl-carousel-o>
 </div>
-<div nz-col nzSpan="10" style="padding:20px 0px 20px 15px">
+<div nz-col nzMd="10" class="aboutGSM">
     <h2 class="myTitle"> Donation Web GSM</h2>
     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
     <button nz-button nzType="primary">More</button>

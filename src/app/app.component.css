@@ -47,3 +47,66 @@
     background-image: url('../assets/img/bottomline.png');
     background-repeat: repeat-x;
   }
+
+  @media only screen and (max-width:709px){
+    #menu > .ant-menu-item {
+      /* display: none; */
+      padding: 0 5px;
+    }
+  }
+
+  .myFooterMenu{
+    display: none
+  }
+
+  .myFooter{
+    height:50px;background-color:#fff;text-align:center;padding:30px;
+  }
+  
+  @media only screen and (max-width:540px){
+    #menu > .ant-menu-item {
+      display: none;
+      /* padding: 0 5px; */
+    }
+    
+    .myFooter{
+      margin-bottom:50px
+    }
+
+    .myFooterMenu {
+      display: block!important;
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      background-color: rgb(255, 255, 255);
+      color: white;
+      text-align: center;
+      border-top:0.5px solid rgb(219, 219, 219);
+   }
+
+   #footerMenu > li {
+    cursor: pointer;
+    padding: 10px 0px;
+    display: inline-block;width:25%;
+    color: rgb(59, 177, 255);
+    font-size:10px;
+    text-align: center;
+   }
+
+   #footerMenu > li:hover {
+     border-bottom: 2px solid rgb(59, 177, 255);
+   }
+
+   #footerMenu > li  > a > i {
+     display: block;
+   }
+
+   .selectedMenuMobile{
+    border-bottom: 2px solid rgb(59, 177, 255);
+   }
+
+   .unselectedMenuMobile{
+    border-bottom: none;
+   }
+  };

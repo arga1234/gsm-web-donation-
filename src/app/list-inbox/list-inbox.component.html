@@ -1,8 +1,6 @@
-<div nz-row style="padding:70px 150px 0px 150px;background-color: #f3f3f3;">
+<div nz-row class="rowInbox">
         <h1 style="text-align: center;">Inbox</h1>
-        <div nz-col nzMd="24" style="background-color: white;border-radius:5px;padding:50px;margin-bottom:30px;min-height:350px">
-            
-
+        <div nz-col nzMd="24" class="colInbox">
             <div  *ngIf="inboxOpen==true;else inboxClosed">
             <p >
                 <span style="margin-right:10px; cursor: pointer;" (click)="backToList()"><i  nz-icon nzType="arrow-left" nzTheme="outline"></i></span>
@@ -15,18 +13,18 @@
             </div>  
             <ng-template #inboxClosed>
                 <div nz-row *ngFor="let list of inbox" class="hoverText" (click)="openInbox(list)" style="cursor: pointer;">
-                    <div nz-col nzSpan="12" style="text-align:left" >
+                    <div nz-col nzSpan="12" style="text-align:left;margin-bottom:10px" >
                         <span [style.font-weight]="list.read ? '600' : '500'" >
                             {{list.kabar}}
                         </span>
     
                     </div>
-                    <div nz-col nzSpan="12" style="text-align:right" >
+                    <div nz-col nzSpan="12" style="text-align:right;margin-bottom:10px" >
                         <span [style.font-weight]="list.read ? '600' : '500'" >
                             {{list.date}}
                         </span>
                     </div>
-                    <div nz-col nzSpan="24" >
+                    <div nz-col nzSpan="24" style="text-align: justify;" >
                         <span [style.font-weight]="list.read ? '600' : '500'">
                             {{list.description.substring(0,99)}}
                         </span>

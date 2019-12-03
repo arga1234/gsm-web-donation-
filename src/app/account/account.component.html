@@ -1,6 +1,6 @@
-<div nz-row style="padding:70px 150px 0px 150px;background-color: #f3f3f3;">
+<div nz-row class="accountRow">
     <h1 style="text-align: center;">Account</h1>
-    <div nz-col nzMd="24" [ngSwitch]="selectedItem" style="background-color: white;border-radius:5px;padding:50px;margin-bottom:30px">
+    <div nz-col nzMd="24" [ngSwitch]="selectedItem" class="accountCol">
 
         <div *ngIf="selectedItem !== 'list'">
         <p >
@@ -62,7 +62,7 @@
         </div>
         <nz-divider></nz-divider>
     </div>
-    <div *ngSwitchCase="'Daftar'" style="margin-top:30px;padding:0px 30%;text-align:center">
+    <div *ngSwitchCase="'Daftar'" class="divDaftar" >
         <h3 >
             Daftar 
             </h3>
@@ -99,7 +99,7 @@
             </form>
     </div>
 
-    <div *ngSwitchCase="'Masuk'" style="margin-top:30px;padding:0px 30%;text-align:center">
+    <div *ngSwitchCase="'Masuk'" class="divMasuk" >
         <h3 >
         Masuk 
         </h3>

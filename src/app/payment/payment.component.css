@@ -1,0 +1,27 @@
+@media only screen and (min-width:920px){
+    .rowPayment {
+        padding:70px 100px 0px 100px;background-color: #f3f3f3;
+    }
+
+    .myTitle{
+        text-align: center;
+    }
+}
+@media only screen and (min-width:919px){
+    .rowPayment {
+        padding:70px 50px 0px 50px;background-color: #f3f3f3;
+    }
+
+    .myTitle{
+        text-align: center;
+    }
+}
+@media only screen and (max-width:450px){
+    .rowPayment {
+        padding:70px 10px 0px 10px;background-color: #f3f3f3;
+    }
+
+    .myTitle{
+        text-align: center;padding:0px 30px
+    }
+}

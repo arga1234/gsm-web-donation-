@@ -21,3 +21,61 @@ p{
   .login-form-button {
     width: 100%;
   }
+
+
+
+  @media only screen and (min-width:920px){
+    .accountRow {
+      padding:70px 150px 0px 150px;background-color: #f3f3f3;
+    }
+
+    .accountCol{
+      background-color: white;border-radius:5px;padding:50px;margin-bottom:30px
+    }
+
+    .divDaftar {
+      margin-top:30px;padding:0px 30%;text-align:center
+    }
+
+    .divMasuk{
+      margin-top:30px;padding:0px 30%;text-align:center
+    }
+  }
+
+  @media only screen and (max-width:919px){
+    .accountRow {
+      padding:70px 50px 0px 50px;background-color: #f3f3f3;
+    }
+
+    .accountCol{
+      background-color: white;border-radius:5px;padding:30px;margin-bottom:30px
+    }
+
+    .divDaftar {
+      margin-top:30px;padding:0px 20%;text-align:center
+    }
+
+    .divMasuk{
+      margin-top:30px;padding:0px 20%;text-align:center
+    }
+  }
+
+  @media only screen and (max-width:450px){
+
+    .accountRow {
+      padding:70px 25px 0px 25px;background-color: #f3f3f3;min-height: 600px;
+    }
+
+    .accountCol{
+      background-color: white;border-radius:5px;padding:20px;margin-bottom:30px
+    }
+
+    .divDaftar {
+      margin-top:30px;padding:0px 10%;text-align:center
+    }
+
+    .divMasuk{
+      margin-top:30px;padding:0px 10%;text-align:center
+    }
+
+  }

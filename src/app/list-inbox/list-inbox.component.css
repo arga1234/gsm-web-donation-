@@ -2,3 +2,35 @@
     color:rgb(76, 151, 250);
     
 }
+
+
+
+@media only screen and (min-width:920px){
+    .rowInbox{
+        padding:70px 150px 0px 150px;background-color: #f3f3f3;
+    }
+
+    .colInbox{
+        background-color: white;border-radius:5px;padding:50px;margin-bottom:30px;min-height:350px
+    }
+}
+
+@media only screen and (max-width:919px){
+    .rowInbox{
+        padding:70px 50px 0px 50px;background-color: #f3f3f3;
+    }
+
+    .colInbox{
+        background-color: white;border-radius:5px;padding:30px;margin-bottom:30px;min-height:350px
+    }
+}
+
+@media only screen and (max-width:450px){
+    .rowInbox{
+        padding:70px 25px 0px 25px;background-color: #f3f3f3;
+    }
+
+    .colInbox{
+        background-color: white;border-radius:5px;padding:20px;margin-bottom:30px;min-height:350px
+    }
+}

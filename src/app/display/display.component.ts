@@ -20,6 +20,7 @@ export class DisplayComponent implements OnInit {
   ngOnInit() {
   }
   cekCoin(){
-    console.log(this.coins)
+    // console.log(this.store.select(''))
+    this.store.select('blockchain').subscribe((data) => console.log(data) )
   }
 }

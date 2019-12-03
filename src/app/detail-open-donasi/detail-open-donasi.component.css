@@ -1,5 +1,4 @@
 .myTitle {
-    font-size: 24px;
     line-height: 1.5;
     clear: both;
     margin: .6em 0 .6em;
@@ -20,4 +19,86 @@
 
   [nz-radio] {
     display:block;margin-bottom:5px
+  }
+
+  @media only screen and (min-width:920px){
+    .rowDetail{
+      padding:50px 100px 50px 100px;background-color: #eeeeee;
+    }
+
+    .colDetail{
+      padding:40px;background-color: #fff;margin-top:30px;border-radius:5px
+    }
+
+    .myTitle{
+      font-size: 24px;
+    }
+
+    .valueNumber{
+      font-size:16px;color:#4bb7ff
+    }
+
+    .jumlahDonasi {
+      display: inline-block;margin-right:10px
+    }
+
+    .colForm {
+      padding:20px 50px ;
+    }
+  }
+
+  @media only screen and (max-width:919px){
+    .rowDetail{
+      padding:50px;background-color: #eeeeee;
+    }
+
+    .colDetail{
+      padding:30px;background-color: #fff;margin-top:30px;border-radius:5px
+    }
+
+    .myTitle{
+      font-size: 16px;
+    }
+
+    .valueNumber{
+      font-size:16px;color:#4bb7ff
+    }
+
+    .jumlahDonasi {
+      display: inline-block;margin-right:10px
+    }
+
+    .colForm {
+      padding:20px 30px ;
+    }
+  }
+
+  @media only screen and (max-width:450px){
+    .rowDetail{
+      padding:50px 20px 50px 20px;background-color: #eeeeee;
+    }
+
+    .colDetail{
+      padding:20px;background-color: #fff;margin-top:30px;border-radius:5px
+    }
+    
+    .myTitle{
+      font-size: 14px;
+    }
+
+    .valueNumber{
+      font-size:14px;color:#4bb7ff
+    }
+
+    .jumlahDonasi {
+      display: inline-block;margin-right:0px
+    }
+
+    p{
+      font-size:12px;
+    }
+
+    .colForm {
+      padding:20px 15px ;
+    }
   }

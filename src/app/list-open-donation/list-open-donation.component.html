@@ -1,10 +1,10 @@
-<div nz-row style="padding:50px 100px 0px 100px;background-color: #f3f3f3;" (scroll)="scrollHandler($event)" >
+<div nz-row class="list-open-donation" (scroll)="scrollHandler($event)" >
     <div nz-col nzSpan="24" (click)="goToDetail(list)" class="cardDesignDonation"  *ngFor="let list of data">
-        <div nz-row>
-            <div nz-col nzSpan="8">
+        <div nz-row *ngIf="innerWidth > 450;else mobileVer">
+            <div nz-col [nzSpan]="innerWidth < 600 ? 12:8">
                 <img style="width:100%;border-radius: 5px;" [src]="list.image" alt="">
             </div>
-            <div nz-col nzSpan="16" style="padding:0px 15px 0px 15px">
+            <div nz-col [nzSpan]="innerWidth < 600 ? 12:16" style="padding:0px 15px 0px 15px">
                 <h2 class="myTitle">{{list.title}}</h2>
                 <p>{{list.owner}} <i nz-icon [nzType]="'check-circle'" [nzTheme]="'twotone'" [nzTwotoneColor]="'#52c41a'"></i></p> 
                 <nz-progress [nzPercent]="list.progress" nzStatus="active"></nz-progress>
@@ -20,6 +20,28 @@
                 </div>
             </div>
         </div>
+        <ng-template #mobileVer>
+            <div nz-row >
+                <div nz-col nzMd="24">
+                    <img style="width:100%;border-radius: 5px;" [src]="list.image" alt="">
+                </div>
+                <div nz-col nZmd="24" style="padding:0px 15px 0px 15px">
+                    <h2 style="margin-top:15px" class="myTitle">{{list.title}}</h2>
+                    <p>{{list.owner}} <i nz-icon [nzType]="'check-circle'" [nzTheme]="'twotone'" [nzTwotoneColor]="'#52c41a'"></i></p> 
+                    <nz-progress [nzPercent]="list.progress" nzStatus="active"></nz-progress>
+                    <div nz-row style="margin-top:15px">
+                        <div nz-col nzSpan="12" style="text-align: left;">
+                            <p>Terkumpul</p>
+                            <span><b>Rp {{list.collected}}</b></span>
+                        </div>
+                        <div nz-col nzSpan="12" style="text-align:right">
+                            <p>Sisa Hari</p>
+                            <span><b>{{list.dayLeft}}</b></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
     </div>
     <div nz-col nzSpan="24" style="text-align:center;margin-bottom:10px">
             <nz-spin nzSimple *ngIf="loading"></nz-spin>

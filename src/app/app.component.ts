@@ -52,6 +52,10 @@ export class AppComponent {
     );
   }
 
+  menuClicked(x){
+    this.routerLoc =x
+  }
+
   ngOnInit() {
     console.log("Hello")
     setTimeout(()=>{

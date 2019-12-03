@@ -1,37 +1,65 @@
 <!-- NG-ZORRO -->
-<ul nz-menu nzMode="horizontal" style="text-align: right;position: fixed;width: 100%;z-index: 100;">
+<ul id="menu" nz-menu nzMode="horizontal" style="text-align: right;position: fixed;width: 100%;z-index: 100;">
     <li class="myLogo">Donation Web GSM</li>
     
-    <li nz-menu-item [class]="this.routerLoc == '/home' ? selectedMenu: unselectedMenu" >
+    <li nz-menu-item [class]="routerLoc == '/home' ? selectedMenu: unselectedMenu" >
         <a routerLink="/home">
-          <i nz-icon nzType="appstore" nzTheme="outline"></i>
+          <i nz-icon nzType="appstore" nzTheme="outline" ></i>
           Home
         </a>
     </li>
     
-      <li nz-menu-item [class]="this.routerLoc == '/donasisaya' ? selectedMenu: unselectedMenu" >
+      <li nz-menu-item [class]="routerLoc == '/donasisaya' ? selectedMenu: unselectedMenu" >
           <a routerLink="/donasisaya">
-          <i nz-icon nzType="solution" nzTheme="outline"></i>
-          Donasi Saya
+          <i nz-icon nzType="solution" nzTheme="outline" ></i>
+          My Donation
         </a>
         </li>
    
 
-    <li nz-menu-item [class]="this.routerLoc == '/inbox' ? selectedMenu: unselectedMenu" >
+    <li nz-menu-item [class]="routerLoc == '/inbox' ? selectedMenu: unselectedMenu" >
       <a routerLink="/inbox">
-          <i nz-icon nzType="inbox" nzTheme="outline"></i>
+          <i nz-icon nzType="inbox" nzTheme="outline" ></i>
           Inbox  
       </a>
     </li>
-    <li nz-menu-item [class]="this.routerLoc == '/account' ? selectedMenu: unselectedMenu" >
+    <li nz-menu-item [class]="routerLoc == '/account' ? selectedMenu: unselectedMenu" >
       <a routerLink="/account">
-        <i nz-icon nzType="user" nzTheme="outline"></i>
+        <i nz-icon nzType="user" nzTheme="outline" ></i>
         Account
       </a>
     </li>
 </ul>
 <router-outlet></router-outlet>
 <div nz-row>
-  <div nz-col nzSpan="24" style="min-height:50px;background-color:#ffffff;text-align:center;padding:30px">Copyright : GSM 2019</div>
-  <!-- <div nz-col nzSpan="24" class="bottomLine"></div> -->
+  <div nz-col nzMd="24" class="myFooter">Copyright : GSM 2019</div>
+  <div nz-col nzMd="24" class="myFooterMenu">
+          <ul id="footerMenu" style="display: block;width:100%;color:black;padding-left:0px;margin-bottom:0px">
+            <li  [class]="routerLoc == '/home' ? 'selectedMenuMobile': 'unselectedMenuMobile'">
+               <a (click)="menuClicked('/home')" routerLink="/home">
+                <i nz-icon nzType="appstore" nzTheme="outline"></i>
+                <span>Home</span>
+              </a>
+            </li>
+            <li  [class]="routerLoc == '/donasisaya' ? 'selectedMenuMobile': 'unselectedMenuMobile'" >
+              <a (click)="menuClicked('/donasisaya')" routerLink="/donasisaya">
+                <i nz-icon nzType="solution" nzTheme="outline"></i>
+                <span>My Donation</span>
+              </a>
+            </li>
+            <li  [class]="routerLoc == '/inbox' ? 'selectedMenuMobile': 'unselectedMenuMobile'">
+              <a (click)="menuClicked('/inbox')" routerLink="/inbox">
+                <i nz-icon nzType="inbox" nzTheme="outline"></i>
+                <span>Inbox</span>
+              </a>
+            </li>
+            <li  [class]="routerLoc == '/account' ? 'selectedMenuMobile': 'unselectedMenuMobile'"> 
+              <a (click)="menuClicked('/account')" routerLink="/account">
+                <i nz-icon nzType="user" nzTheme="outline"></i>
+                <span>Account</span>
+              </a>
+            </li>
+          </ul>      
+  </div>
 </div>
+

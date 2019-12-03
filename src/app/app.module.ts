@@ -16,6 +16,7 @@ import { MyServicesService } from './myServices.service'
 import { StoreModule } from '@ngrx/store';
 import  {updateDetail} from './reducers/list-open-donation.reducer'
 import { addCoinReducer } from './reducers/blockchain.reducer';
+import { CarouselModule } from 'ngx-owl-carousel-o';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
@@ -38,7 +39,8 @@ registerLocaleData(en);
     ReactiveFormsModule, 
     HttpClientModule,
     BrowserAnimationsModule, 
-    PerfectScrollbarModule
+    PerfectScrollbarModule, 
+    CarouselModule
   ],
   providers: [
     MyServicesService, 

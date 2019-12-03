@@ -21,7 +21,14 @@ export class ListOpenDonationComponent implements OnInit {
   getData = true
   data = [];
   datas: any;
+  innerWidth :any;
   navStart: Observable<NavigationStart>;
+
+  @HostListener("window:resize", ["$event"])
+  onResize(event) {
+    this.innerWidth = window.innerWidth;
+    console.log(this.innerWidth)
+  }
 
   @HostListener("window:scroll", ["$event"])
   onWindowScroll() {
@@ -68,7 +75,7 @@ export class ListOpenDonationComponent implements OnInit {
   }
 
   ngOnInit() {
-    
+    this.innerWidth = window.innerWidth;
     this.data = this._myserviceService.getListDonasi()
     // Mensubsribe observable yang ada di service kemudian memasukannya ke dalam datas
     this._myserviceService.currentData.subscribe(data => this.datas = data);
